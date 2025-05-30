@@ -1,0 +1,449 @@
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUZURTANOFFF RACING | Project D Style</title>
+    <style>
+        /* Базовые стили */
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;700&family=Press+Start+2P&display=swap');
+        
+        :root {
+            --neon-blue: #00f0ff;
+            --neon-pink: #ff00aa;
+            --dark-bg: #000033; /* Темно-синий фон */
+            --jdm-red: #ff0033;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: var(--dark-bg);
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Шапка */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(transparent, var(--dark-bg));
+            z-index: 1;
+        }
+        
+        .header-btn {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-pink);
+            letter-spacing: 5px;
+            position: relative;
+            z-index: 2;
+            background: transparent;
+            border: 3px solid var(--neon-blue);
+            padding: 15px 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .header-btn:hover {
+            background: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+        
+        .japanese {
+            font-family: 'MS Gothic', sans-serif;
+            color: var(--neon-pink);
+            display: block;
+            margin-top: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            color: white;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Меню */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 51, 0.8); /* Темно-синий */
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--neon-blue);
+            padding: 15px 0;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--neon-pink);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--neon-blue);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Секции */
+        section {
+            padding: 100px 20px;
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        h2 {
+            font-family: 'Press Start 2P', cursive;
+            color: var(--neon-blue);
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+        
+        /* Кнопки */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: transparent;
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.2), transparent);
+            transition: all 0.5s;
+        }
+        
+        .btn:hover {
+            background: rgba(0, 240, 255, 0.1);
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Галерея */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            height: 200px;
+            overflow: hidden;
+            border-radius: 5px;
+            position: relative;
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+            transition: all 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Соц-кнопки */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .social-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid var(--neon-pink);
+            text-decoration: none;
+            transition: all 0.3s;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .social-btn:hover {
+            background: var(--neon-pink);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px var(--neon-pink);
+        }
+        
+        /* Футер */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(0, 0, 51, 0.5); /* Темно-синий */
+            position: relative;
+            z-index: 2;
+        }
+        
+        footer p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Анимации */
+        @keyframes drift {
+            0% { transform: translateX(0) skewX(0); }
+            50% { transform: translateX(-20px) skewX(-5deg); }
+            100% { transform: translateX(0) skewX(0); }
+        }
+        
+        /* Адаптив */
+        @media (max-width: 768px) {
+            .header-btn {
+                font-size: 2rem;
+            }
+            
+            .japanese {
+                font-size: 1.2rem;
+            }
+            
+            nav li {
+                margin: 0 10px;
+            }
+            
+            section {
+                padding: 70px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <button class="header-btn">BUZURTANOFFF<span class="japanese">レーシング</span></button>
+        <p class="tagline">ВЕЛОГОНКИ • TOKYO STYLE • 2024</p>
+        <a href="#contacts" class="btn">КОНТАКТЫ</a>
+        
+        <!-- Анимированные элементы фона -->
+        <div class="drift-element" style="position: absolute; top: 20%; left: 10%; width: 50px; height: 50px; background: url('https://i.imgur.com/JrQZfYl.png') no-repeat center/contain; opacity: 0.5; animation: drift 8s infinite ease-in-out;"></div>
+        <div class="drift-element" style="position: absolute; bottom: 15%; right: 15%; width: 70px; height: 70px; background: url('https://i.imgur.com/JrQZfYl.png') no-repeat center/contain; opacity: 0.3; animation: drift 10s infinite ease-in-out reverse;"></div>
+    </header>
+    
+    <!-- Меню (убрал "События") -->
+    <nav>
+        <ul>
+            <li><a href="#about">О КЛУБЕ</a></li>
+            <li><a href="#tracks">ТРАССЫ</a></li>
+            <li><a href="#gallery">ГАЛЕРЕЯ</a></li>
+            <li><a href="#contacts">КОНТАКТЫ</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Секция "О нас" с измененным текстом -->
+    <section id="about">
+        <div class="container">
+            <h2>О НАС <span class="japanese">チーム</span></h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">
+                BRC — это сообщество экстремальных велогонщиков, превращающих городские парки в гоночные трассы. 
+                Наша философия: скорость, контроль и уважение к улице.
+            </p>
+            <div style="text-align: center;">
+                <a href="#gallery" class="btn">ГАЛЕРЕЯ</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="tracks" style="background: rgba(0, 0, 51, 0.3);">
+        <div class="container">
+            <h2>ГОНОЧНЫЕ ТРАССЫ СТ. ЗЕЛЕНЧУКСКОЙ <span class="japanese">コース</span></h2>
+            <p style="text-align: center;">Лучшие трассы для велогонок в регионе:</p>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://t.me/BRCtracks" target="_blank" class="btn">ПОСМОТРЕТЬ ТРАССЫ</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Секция "Галерея" с кнопкой в заголовке -->
+    <section id="gallery" style="background: rgba(0, 0, 51, 0.3);">
+        <div class="container">
+            <a href="https://t.me/BRCgalery" target="_blank" style="text-decoration: none;">
+                <h2>ГАЛЕРЕЯ <span class="japanese">ギャラリー</span></h2>
+            </a>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/JrQZfYl.jpg" alt="Гонка">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/YQq7Qv3.jpg" alt="Дрифт">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/ZKMnxce.jpg" alt="Тюнинг">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/JrQZfYl.jpg" alt="Велогонки">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/YQq7Qv3.jpg" alt="Участники">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.imgur.com/ZKMnxce.jpg" alt="Победа">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contacts">
+        <div class="container">
+            <h2>КОНТАКТЫ <span class="japanese">連絡先</span></h2>
+            
+            <p style="text-align: center; margin-bottom: 30px;">Для участия в заездах и сотрудничества:</p>
+            
+            <div class="social-links">
+                <a href="https://t.me/BuzRacingClub" target="_blank" class="social-btn">
+                    <span>Telegram</span>
+                </a>
+                <a href="https://vk.com/buzurtanofff" target="_blank" class="social-btn">
+                    <span>VK</span>
+                </a>
+                <a href="https://t.me/buzurtanofff" target="_blank" class="social-btn">
+                    <span>Мой Telegram</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2024 BUZURTANOFFF RACING CLUB</p>
+    </footer>
+    
+    <script>
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Эффект дрифта при скролле
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            const driftElements = document.querySelectorAll('.drift-element');
+            
+            driftElements.forEach(el => {
+                const speed = parseFloat(el.getAttribute('data-speed')) || 5;
+                el.style.transform = `translateX(${scrollY / speed}px) rotate(${scrollY / 20}deg)`;
+            });
+        });
+        
+        // Анимация неонового свечения
+        const neonElements = document.querySelectorAll('h1, h2, .btn, .japanese, .header-btn');
+        neonElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                el.style.animation = 'none';
+                void el.offsetWidth; // Trigger reflow
+                el.style.animation = null;
+            });
+        });
+    </script>
+</body>
+</html>
